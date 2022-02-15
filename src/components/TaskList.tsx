@@ -29,10 +29,11 @@ export function TaskList() {
   }
 
   function handleToggleTaskCompletion(id: string) {
-    const toggle = (task: Task) =>
-      task.id === id ? { ...task, isComplete: !task.isComplete } : task;
+    const newTasksComplete = tasks.map((task) =>
+      task.id === id ? { ...task, isComplete: !task.isComplete } : task
+    );
 
-    setTasks(tasks.map((task) => toggle(task)));
+    setTasks(newTasksComplete);
   }
 
   function handleRemoveTask(id: string) {
